@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Archivo', sans-serif; background: #09090b; color: #fafafa; padding: 40px; line-height: 1.6; max-width: 800px; margin: 0 auto; }
+  h1, h2, h3 { color: #3b82f6; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  th, td { border: 1px solid rgba(255,255,255,0.1); padding: 12px; text-align: left; }
+  th { background: rgba(59,130,246,0.1); }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back-btn { display: inline-block; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid #3b82f6; border-radius: 8px; margin-bottom: 30px; transition: 0.2s; }
+  .back-btn:hover { background: rgba(59,130,246,0.4); }
+</style>
+</head>
+<body>
+<a href="rezume.html" class="back-btn">← Назад до Резюме</a>
+<pre style="white-space: pre-wrap; font-family: inherit;"><h1>Практический кейс: Технический SEO-аудит</h1>
+
+<strong>Проект:</strong> [webstudia.online](https://webstudia.online)  
+<strong>Инструментарий:</strong> Имитация парсинга Screaming Frog SEO Spider, Google Search Console, PageSpeed Insights.
+
+---
+
+<h2>1. Анализ индексации и базовых файлов</h2>
+
+Технический фундамент сайта начинается с правильных указаний для поисковых ботов.
+
+| Файл / Тег | Статус | Анализ | Рекомендация |
+|------------|--------|--------|--------------|
+| <strong>robots.txt</strong> | ✅ Есть | Содержит корректные директивы <code>User-agent: *</code>, <code>Allow: /</code>, но не указан путь к Sitemap. | Добавить строку <code>Sitemap: https://webstudia.online/sitemap.xml</code> в конец файла. |
+| <strong>sitemap.xml</strong> | ⚠️ Проблема | Файл сгенерирован автоматически, но содержит мусорные URL (например, страницы пагинации <code>/page/2/</code>). | Настроить плагин (RankMath/Yoast) так, чтобы в Sitemap попадали только качественные страницы (Pages, Posts, Services). |
+| <strong>rel="canonical"</strong> | ❌ Ошибка | Отсутствует на страницах услуг. Существует риск дублирования контента при UTM-метках. | Обязательно внедрить <code>rel="canonical"</code> (Self-referencing canonical) на всех коммерческих страницах. |
+| <strong>404 Ошибка</strong> | ✅ Настроено | Страница 404 отдает правильный код сервера (404 Not Found), а не 200 OK. | Оставить как есть. Добавить на 404 страницу блок со ссылками на популярные услуги. |
+
+---
+
+<h2>2. Краулинг-аудит (Ошибки сканирования)</h2>
+
+Результаты симуляции прогона через Screaming Frog (лимит 500 URL).
+
+- <strong>Битые ссылки (404 ошибки внутри сайта):</strong> Найдено 3 битые ссылки в футере сайта, ведущие на старые соцсети. <em>Решение:</em> Заменить ссылки на актуальные.
+- <strong>Цепочки редиректов (301 Redirect Chains):</strong> Версия <code>http://</code> перенаправляет на <code>https://</code>, а версия <code>www.</code> перенаправляет на без <code>www.</code>. Настроено корректно (1 шаг редиректа).
+- <strong>Дубликаты Title / Description:</strong> Найдено 5 страниц портфолио с одинаковыми Title "Наши работы | WebStudia". <em>Решение:</em> Уникализировать (добавить название проекта: "Разработка лендинга для Барбершопа | Портфолио").
+- <strong>Отсутствующие H1:</strong> На 2 страницах блога H1 заменен на визуально большой H2. <em>Решение:</em> Изменить тег в верстке.
+
+---
+
+<h2>3. Core Web Vitals и Mobile-First Index</h2>
+
+Поскольку Google использует Mobile-First Indexing, скорость загрузки мобильной версии критически важна.
+
+| Метрика | Значение (Mobile) | Оценка | Рекомендация |
+|---------|-------------------|--------|--------------|
+| <strong>LCP (Largest Contentful Paint)</strong> | 3.5 сек | ⚠️ Потребует улучшений (Норма < 2.5с) | Настроить Preload для главного фонового изображения в шапке (Hero Image). Отложить загрузку некритичного JS. |
+| <strong>INP (Interaction to Next Paint)</strong> | 120 мс | ✅ Хорошо (Норма < 200мс) | Интерактивность сайта в норме, скрипты не блокируют основной поток. |
+| <strong>CLS (Cumulative Layout Shift)</strong> | 0.05 | ✅ Отлично (Норма < 0.1) | Верстка стабильна, элементы не прыгают при загрузке. |
+
+<strong>Адаптивность (Mobile Friendly):</strong> Сайт успешно проходит тест Google Mobile-Friendly. Контент полностью помещается в ширину экрана, текст читабелен без зума, кликабельные элементы расположены на достаточном расстоянии (min 48x48px).
+
+---
+<em>Этот артефакт показывает умение находить технические ошибки, мешающие ранжированию, анализировать скорость загрузки сайта и формировать понятное ТЗ для программистов на исправление недочетов.</em>
+</pre>
+</body>
+</html>

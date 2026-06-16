@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Case Study — AI Semantic Core</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Archivo', sans-serif; background: #09090b; color: #fafafa; padding: 40px; line-height: 1.6; max-width: 850px; margin: 0 auto; }
+  h1, h2, h3 { color: #3b82f6; margin-top: 30px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 30px; font-size: 15px; }
+  th, td { border: 1px solid rgba(255,255,255,0.1); padding: 12px; text-align: left; }
+  th { background: rgba(59,130,246,0.1); color: #60a5fa; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back-btn { display: inline-block; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid #3b82f6; border-radius: 8px; margin-bottom: 30px; transition: 0.2s; }
+  .back-btn:hover { background: rgba(59,130,246,0.4); }
+  .insight-box { background: rgba(234, 179, 8, 0.1); border-left: 4px solid #eab308; padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .highlight { color: #eab308; font-weight: 600; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<a href="rezume.html" class="back-btn">← Назад до Резюме</a>
+
+<h1>Практичний кейс: Збір семантики та побудова Silo-архітектури (AI Pipeline)</h1>
+
+<p><strong>Проєкт:</strong> CPA-сайт агрегатор мовних шкіл</p>
+<p><strong>Ніша:</strong> «Англійська для дітей» (Україна)</p>
+<p><strong>Інструментарій:</strong> Apify (Google Ads API), Python (Pandas, HDBSCAN), Claude AI, кастомні скрипти.</p>
+<p><em>Цей кейс демонструє просунутий пайплайн роботи з семантикою: від автоматизованого збору тисяч сирих ключів до машинного навчання та побудови ідеальної комерційної структури.</em></p>
+
+<hr style="border: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
+
+<h2>Етап 1: Формування Seed-списку та парсинг (Apify)</h2>
+<p>Замість ручного збору через Ahrefs/Serpstat, ми використовуємо автоматизацію для отримання точних даних (Search Volume, CPC, Competition) напряму з Google Keyword Planner.</p>
+<ul>
+  <li>Розклали нішу на сегменти: комерція (курси, онлайн), вік (дошкільнята, підлітки), бренди (Novakid, Englishdom), безкоштовні магніти (картки, ігри).</li>
+  <li>Сформували масив зі 129 seed-фраз.</li>
+  <li>Завантажили seeds у кастомний Python-скрипт <code>direct_apify.py</code>, який підключається до актора Apify.</li>
+  <li><strong>Отримали сирий пул:</strong> 1 447 ключів.</li>
+</ul>
+
+<h2>Етап 2: Жорстка фільтрація на Python (Whitelist & Blacklist)</h2>
+<p>При першому аналізі виявилося, що <strong>87% трафіку — це шкільне сміття</strong> (ГДЗ, відповіді, НМТ), яке не генерує ліди для CPA-мереж. Тому був написаний скрипт для жорсткої фільтрації:</p>
+<ul>
+  <li><strong>Blacklist:</strong> Видалено все, що містить <code>гдз, підручник, клас, зошит, карпюк, зно, нуш</code>.</li>
+  <li><strong>Суворий Whitelist:</strong> Залишено лише ключі з комерційними маркерами (<code>курс, онлайн, ціна</code>), брендами або віковими таргетами.</li>
+</ul>
+<p><strong>Результат:</strong> З 1 447 ключів залишилося <strong>186 кристально чистих комерційних запитів</strong>. Це реальний розмір "грошової" ніші.</p>
+
+<h2>Етап 3: AI-Кластеризація (HDBSCAN) та Search Intent</h2>
+<p>Згрупувати ключі лише за загальними словами — це помилка минулого десятиліття. Ми використовуємо алгоритми (HDBSCAN) та AI (Claude) для кластеризації за <strong>інтентом користувача</strong> та вартістю кліку (CPC).</p>
+<ul>
+  <li><strong>Розділення інтентів:</strong> Запити «картки для дітей» (CPC $1.5) та «курси онлайн» (CPC $35) не можуть жити на одній сторінці. Картки пішли у віддільний <em>Info Magnet</em>, курси — у <em>Money HUB</em>.</li>
+  <li><strong>Бренди та Порівняння:</strong> Алгоритми часто ігнорують запити з низьким Search Volume. Проте запити формату «AllRight чи JustSchool» мають колосальну конверсію. Ми виокремили 25+ таких порівнянь у потужний комерційний HUB.</li>
+</ul>
+
+<h2>Етап 4: Побудова структури (Silo Architecture)</h2>
+<p>Зібрані кластери були організовані у жорстку Silo-структуру для правильного перерозподілу внутрішньої ваги (Link Juice).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип сторінки (Silo Node)</th>
+      <th>Назва / Кластер</th>
+      <th>Ключів</th>
+      <th>Max CPC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Money HUB</strong></td>
+      <td>Англійська для дітей онлайн (Головна)</td>
+      <td>56</td>
+      <td>$89</td>
+    </tr>
+    <tr>
+      <td><strong>Money Spoke</strong></td>
+      <td>Дошкільнята (3-6 років)</td>
+      <td>15</td>
+      <td>$15</td>
+    </tr>
+    <tr>
+      <td><strong>Money Spoke</strong></td>
+      <td>Підлітки онлайн</td>
+      <td>4</td>
+      <td>$44</td>
+    </tr>
+    <tr>
+      <td><strong>Info Magnet</strong></td>
+      <td>Картки та завдання (Залучення трафіку)</td>
+      <td>9</td>
+      <td>$8</td>
+    </tr>
+    <tr>
+      <td><strong>Compare HUB</strong></td>
+      <td>Порівняння шкіл «X чи Y»</td>
+      <td>42</td>
+      <td>$21</td>
+    </tr>
+    <tr>
+      <td><strong>Brand Review</strong></td>
+      <td>Огляди (Englishdom, JustSchool, Novakid та ін.)</td>
+      <td>32</td>
+      <td>$10-$19</td>
+    </tr>
+    <tr>
+      <td><strong>Local Spoke</strong></td>
+      <td>Курси офлайн (Львів та інші міста)</td>
+      <td>14</td>
+      <td>$64</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="insight-box">
+  <h3>Головні інсайти підходу</h3>
+  <p><strong>1. Не довіряй сирим цифрам GKP:</strong> Величезний Search Volume в освітній ніші — це найчастіше школярі, які шукають безкоштовні відповіді. Без жорсткої Python-зачистки CPA-сайт був би приречений на сміттєвий трафік.</p>
+  <p><strong>2. Volume = 0 не означає «немає попиту»:</strong> Брендові запити та порівняння часто показують 0 у Keyword Planner, але це найгарячіший трафік (Bottom of Funnel).</p>
+  <p><strong>3. CPC як маркер інтенту:</strong> Вартість кліку ідеально показує, які ключі продають, а які лише інформують.</p>
+</div>
+
+</body>
+</html>

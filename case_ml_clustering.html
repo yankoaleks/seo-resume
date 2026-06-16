@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Case Study — ML Clustering</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Archivo', sans-serif; background: #09090b; color: #fafafa; padding: 40px; line-height: 1.6; max-width: 850px; margin: 0 auto; }
+  h1, h2, h3 { color: #3b82f6; margin-top: 30px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 30px; font-size: 15px; }
+  th, td { border: 1px solid rgba(255,255,255,0.1); padding: 12px; text-align: left; }
+  th { background: rgba(59,130,246,0.1); color: #60a5fa; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back-btn { display: inline-block; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid #3b82f6; border-radius: 8px; margin-bottom: 30px; transition: 0.2s; }
+  .back-btn:hover { background: rgba(59,130,246,0.4); }
+  .insight-box { background: rgba(234, 179, 8, 0.1); border-left: 4px solid #eab308; padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .highlight { color: #eab308; font-weight: 600; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<a href="rezume.html" class="back-btn">← Назад до Резюме</a>
+
+<h1>Data Science у SEO: Власний ML-скрипт кластеризації</h1>
+
+<p><strong>Ніша / Проєкт:</strong> Big Data в SEO, Технічна семантика</p>
+<p><strong>Інструментарій:</strong> Python (HDBSCAN, UMAP, Pandas), Apify, DataForSEO, Claude AI</p>
+<p><em>Кейс про розробку власного інструменту кластеризації ключових слів на базі Machine Learning. Інструмент здатен обробляти сотні тисяч запитів та групувати їх за справжнім Search Intent.</em></p>
+
+<hr style="border: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
+
+<h2>Етап 1: Робота з великими масивами даних (Big Data)</h2>
+<p>Стандартні SaaS-рішення часто мають ліміти або працюють повільно при обробці великих ядер. Я побудував агрегатор даних:</p>
+<ul>
+  <li>Парсинг пошукових підказок, конкурентів та статистики через Apify (Google Search) та DataForSEO.</li>
+  <li>Очищення та нормалізація пулу (до 100 000+ ключових слів) за допомогою Pandas (видалення дублів, лематизація).</li>
+</ul>
+
+<h2>Етап 2: Застосування Machine Learning (UMAP + HDBSCAN)</h2>
+<p>Групувати слова за простою лексичною схожістю неефективно. Ми застосували машинне навчання для кластеризації на основі SERP:</p>
+<div class="insight-box">
+  <span class="highlight">Алгоритм HDBSCAN:</span> Дозволяє знаходити кластери довільної форми та ефективно відсіювати семантичний "шум" (викиди), який псує структуру майбутніх сторінок.
+</div>
+<ul>
+  <li>Векторизація ключових слів на основі результатів видачі (хто стоїть у ТОП-10).</li>
+  <li>Використання UMAP для зниження розмірності векторів, що значно прискорює роботу алгоритму HDBSCAN.</li>
+</ul>
+
+<h2>Етап 3: Визначення Search Intent за допомогою AI</h2>
+<p>Після математичної кластеризації, до процесу підключається AI (Claude/GPT):</p>
+<ul>
+  <li>Аналіз кожного кластеру для визначення його типу (Commercial, Informational, Navigational).</li>
+  <li>Автоматичне призначення ідеального типу сторінки (Product, Category, Article) для кожної групи.</li>
+</ul>
+
+<h2>Результат</h2>
+<p>Створено автономний скрипт, який за декілька хвилин перетворює "смітник" із тисяч сирих ключів на ідеально структуровану архітектуру майбутнього сайту (Silo Architecture).</p>
+
+</body>
+</html>

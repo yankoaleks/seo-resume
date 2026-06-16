@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Резюме — Янько Олександр Миколайович</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --bg-primary: #09090b;
+    --bg-secondary: #18181b;
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --glass-bg: rgba(24, 24, 27, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    background-color: var(--bg-primary);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 25%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+
+  a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
+  a:hover { color: var(--accent-hover); }
+
+  .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .dob-badge {
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.05);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+  }
+
+  .sb-section { display: flex; flex-direction: column; gap: 15px; }
+
+  .sb-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sb-title i { width: 16px; height: 16px; color: var(--accent); }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .contact-item i { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; }
+  .contact-item .ready-remote { display: block; font-size: 12px; color: #52525b; margin-top: 2px; }
+
+  .skill-item { margin-bottom: 12px; }
+  .skill-item:last-child { margin-bottom: 0; }
+  
+  .skill-name {
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .skill-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .skill-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  }
+
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .lang-badge {
+    font-size: 11px;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent-hover);
+    padding: 3px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .tool-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tool-tag {
+    font-size: 12px;
+    background: rgba(255,255,255,0.03);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.2s ease;
+  }
+  .tool-tag:hover { background: rgba(255,255,255,0.08); color: var(--text-primary); }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  @keyframes heroGlow {
+    0% { filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.2)); }
+    50% { filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.6)); transform: translateY(-3px); }
+    100% { filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.2)); }
+  }
+
+  .header-block {
+    margin-bottom: 10px;
+    animation: heroGlow 4s ease-in-out infinite;
+  }
+
+  .full-name {
+    font-size: 36px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .position-line {
+    font-size: 18px;
+    color: var(--accent-hover);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .profile-text {
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+
+  .profile-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .section-title i { width: 22px; height: 22px; color: var(--accent); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+  }
+
+  .skill-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+  
+  .skill-card:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+
+  .skill-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .skill-card-header i { width: 18px; height: 18px; color: var(--accent-hover); }
+
+  .skill-card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    color: var(--text-primary);
+  }
+
+  .skill-card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .ai-section {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.4));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .ai-tools-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .ai-tool-chip {
+    font-size: 13px;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent-hover);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+  .ai-tool-chip:hover {
+    background: rgba(59, 130, 246, 0.2);
+    transform: translateY(-1px);
+  }
+  .ai-tool-chip i { width: 14px; height: 14px; }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 5px;
+    bottom: 0;
+    width: 2px;
+    background: var(--glass-border);
+  }
+
+  .exp-item {
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--accent);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .exp-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    color: var(--text-primary);
+  }
+
+  .exp-period {
+    font-size: 12px;
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--glass-border);
+  }
+
+  .exp-company {
+    font-size: 14px;
+    color: var(--accent-hover);
+    margin-bottom: 12px;
+  }
+
+  .exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-list li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .exp-list li i {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    color: var(--accent);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .portfolio-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .portfolio-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .portfolio-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .portfolio-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .portfolio-card:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-4px);
+  }
+  .portfolio-card:hover::before { opacity: 1; }
+
+  .portfolio-url {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .portfolio-url:hover { color: var(--accent-hover); }
+  .portfolio-url i { width: 14px; height: 14px; color: var(--text-secondary); }
+
+  .portfolio-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .edu-block {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .edu-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .edu-icon-wrap i { width: 20px; height: 20px; color: var(--accent-hover); }
+
+  .edu-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; color: var(--text-primary); }
+  .edu-spec { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+  .edu-year { font-size: 13px; color: var(--accent); margin-top: 4px; }
+
+  @media (max-width: 850px) {
+    .container { grid-template-columns: 1fr; }
+    .sidebar { order: 2; }
+    .main-content { order: 1; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .container { display: block; padding: 0; margin: 0; max-width: none; }
+    .glass-card { box-shadow: none; border: none; background: none; padding: 0; }
+    .sidebar { display: none; }
+    * { color: #000 !important; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar glass-card">
+    <div class="avatar-wrap">
+      <div class="avatar">ЯО</div>
+      
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title"><i data-lucide="user-circle"></i> Контакти</div>
+      <div class="contact-item">
+        <i data-lucide="map-pin"></i>
+        <div>
+          Миколаїв, Україна
+          <span class="ready-remote">Готовий до Remote</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <i data-lucide="phone"></i>
+        <a href="tel:+380935730705">+38 (093) 573-07-05</a>
+      </div>
+      <div class="contact-item">
+        <i data-lucide="send"></i>
+        <a href="https://t.me/AleksanderYan" target="_blank">t.me/AleksanderYan</a>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title"><i data-lucide="code-2"></i> Технічні навички</div>
+      <div class="tool-grid">
+        <span class="tool-tag">WordPress CMS</span>
+        <span class="tool-tag">Technical SEO</span>
+        <span class="tool-tag">On-Page SEO</span>
+        <span class="tool-tag">Google Search Console</span>
+        <span class="tool-tag">Google Analytics 4</span>
+        <span class="tool-tag">Screaming Frog</span>
+        
+        <span class="tool-tag">HTML / CSS</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title"><i data-lucide="languages"></i> Мови</div>
+      <div class="lang-item"><span>Українська</span><span class="lang-badge">Вільно</span></div>
+      <div class="lang-item"><span>Російська</span><span class="lang-badge">Вільно</span></div>
+      <div class="lang-item"><span>Англійська</span><span class="lang-badge">Pre-Intermediate (Тех. документація)</span></div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title"><i data-lucide="file-text"></i> SEO-навички</div>
+      <div class="tool-grid">
+        <span class="tool-tag">Семантичне ядро</span>
+        <span class="tool-tag">Кластеризація</span>
+        <span class="tool-tag">Search Intent</span>
+        <span class="tool-tag">Аудит індексації</span>
+        <span class="tool-tag">E-E-A-T аналіз</span>
+        <span class="tool-tag">Core Web Vitals</span>
+        <span class="tool-tag">Schema.org</span>
+      </div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-title"><i data-lucide="share-2"></i> Соціальні медіа</div>
+      <div class="contact-item" style="align-items: center">
+        <i data-lucide="video" style="width:16px;height:16px"></i>
+        <a href="https://tiktok.com/@tiktoktimetravaler" target="_blank">TikTok</a>
+      </div>
+      <div class="contact-item" style="align-items: center">
+        <i data-lucide="youtube" style="width:16px;height:16px"></i>
+        <a href="https://youtube.com/@VisionSpark_AI" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+    
+    <div class="glass-card">
+      <div class="header-block">
+        <h1 class="full-name">Янько Олександр</h1>
+        <div class="position-line">Technical SEO Specialist · Web Developer · AI Integrator</div>
+      </div>
+      <div class="profile-text">
+        <strong>SEO-спеціаліст</strong> із технічним бекграундом та досвідом роботи з WordPress. Можу виконувати різного роду задачі, пов'язані з SEO: збір та кластеризація семантичного ядра, проведення технічних аудитів, On-Page оптимізація, робота з <strong>Google Search Console</strong> та аналітикою (Ahrefs, Screaming Frog). Впроваджую передових AI-агентів (Claude, Gemini, Make.com) та автоматизовані пайплайни (Firecrawl, Apify) для прискорення SEO-процесів, що дозволяє виконувати задачі в 10 разів швидше.
+      </div>
+    </div>
+
+    <div class="glass-card" style="border-color: #3b82f6;">
+      <h2 class="section-title"><i data-lucide="check-square"></i> Виконані SEO-Кейси (Практика)</h2>
+      <div class="portfolio-grid">
+        <a href="case_semantic.html" class="portfolio-card">
+          <div class="portfolio-content">
+            <div class="portfolio-url" style="color: #60a5fa;">Збір семантики та Silo-архітектура</div>
+            <div class="portfolio-desc">Практичний кейс: парсинг (Apify), фільтрація (Python) та кластеризація (HDBSCAN/Claude).</div>
+          </div>
+        </a>
+        <a href="case_programmatic.html" class="portfolio-card">
+          <div class="portfolio-content">
+            <div class="portfolio-url" style="color: #60a5fa;">Побудова AI-конвеєра (Programmatic SEO)</div>
+            <div class="portfolio-desc">Архітектура "Article Factory": генерація тисяч SEO-статей за допомогою групи AI-агентів та редакційного гейту.</div>
+          </div>
+        </a>
+
+        <a href="case_wp_deploy.html" class="portfolio-card">
+          <div class="portfolio-content">
+            <div class="portfolio-url" style="color: #60a5fa;">Автоматизація деплою у WordPress (MCP)</div>
+            <div class="portfolio-desc">Масова публікація через REST API, обхід WAF, автоматичне заповнення RankMath та Schema.org.</div>
+          </div>
+        </a>
+
+        <a href="case_ml_clustering.html" class="portfolio-card">
+          <div class="portfolio-content">
+            <div class="portfolio-url" style="color: #60a5fa;">ML-скрипт кластеризації семантики</div>
+            <div class="portfolio-desc">Застосування HDBSCAN та UMAP на Python для обробки 100k+ запитів на базі Search Intent та SERP.</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="glass-card">
+      <h2 class="section-title"><i data-lucide="layers"></i> Ключові компетенції</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i data-lucide="search"></i>
+            <div class="skill-card-title">Technical & On-Page SEO</div>
+          </div>
+          <div class="skill-card-desc">Аудит індексації (robots.txt, sitemap), оптимізація Core Web Vitals, E-E-A-T аналіз, перелінковка та мета-теги.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i data-lucide="database"></i>
+            <div class="skill-card-title">Робота з семантикою</div>
+          </div>
+          <div class="skill-card-desc">Глибокий збір семантичного ядра, кластеризація, SERP-аналіз та мапінг запитів за Search Intent.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i data-lucide="link"></i>
+            <div class="skill-card-title">Linkbuilding / Outreach</div>
+          </div>
+          <div class="skill-card-desc">Базові навички пошуку майданчиків-донорів та робота з крауд-маркетингом.</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i data-lucide="workflow"></i>
+            <div class="skill-card-title">AI & Автоматизація</div>
+          </div>
+          <div class="skill-card-desc">Парсинг сайтів (Firecrawl), автоматична генерація SEO-контенту (Make.com, AI-боти), написання аутріч-листів.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-card ai-section">
+      <h2 class="section-title"><i data-lucide="bot"></i> Робочий SEO-інструментарій & AI</h2>
+      <div class="ai-tools-grid">
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Google Search Console</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Screaming Frog</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Claude / Antigravity</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Gemini (Автоматизація)</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Make.com (Webhooks)</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Firecrawl (Парсинг)</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Apify (Scraping)</span>
+        
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Google VEO 3.1</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> Nanobanana</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> AI avatars</span>
+        <span class="ai-tool-chip"><i data-lucide="zap"></i> ElevenLabs</span>
+      </div>
+    </div>
+
+    <div class="glass-card">
+      <h2 class="section-title"><i data-lucide="briefcase"></i> Досвід роботи</h2>
+      <div class="timeline">
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">SEO-практикант / Навчальні проєкти</div>
+            <div class="exp-period">2024 — 2025</div>
+          </div>
+          <div class="exp-company">Практичний курс "Junior SEO"</div>
+          <ul class="exp-list">
+            <li><i data-lucide="check-circle-2"></i> Проведення базових технічних аудитів за чек-листами (робота зі Screaming Frog).</li>
+            <li><i data-lucide="check-circle-2"></i> Збір та ручна кластеризація невеликих семантичних ядер. Розробка структури під нові категорії.</li>
+            <li><i data-lucide="check-circle-2"></i> Внутрішня (On-Page) оптимізація тестових сторінок на WordPress (написання Title, Description, H1, H2).</li>
+            <li><i data-lucide="check-circle-2"></i> Аналіз конкурентів у видачі (SERP) та підготовка ТЗ для копірайтерів.</li>
+            <li><i data-lucide="check-circle-2"></i> Знайомство з Google Search Console: перевірка індексації, аналіз запитів.</li>
+            <li><i data-lucide="check-circle-2"></i> Аудит комерційних факторів та E-E-A-T на реальних сайтах (у рамках навчального процесу).</li>
+          </ul>
+        </div>
+        
+
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Розробка сайтів та SEO-аудит</div>
+            <div class="exp-period">Проєктна робота</div>
+          </div>
+          <div class="exp-company">Фриланс (Web & SEO)</div>
+          <ul class="exp-list">
+            <li><i data-lucide="check-circle-2"></i> <strong>Технічний SEO-аудит:</strong> проведення глибинних аудитів сайтів (CWV, E-E-A-T, Schema.org).</li>
+            <li><i data-lucide="check-circle-2"></i> <strong>Розробка:</strong> створення швидких лендінгів (HTML, CSS, JS), оптимізованих для Mobile First Index.</li>
+          
+            <li><i data-lucide="check-circle-2"></i> <strong>Просунутий технічний аудит:</strong> оптимізація краулінгового бюджету, налаштування індексації фасетної навігації (фільтрів) та усунення ланцюжків редиректів.</li>
+            <li><i data-lucide="check-circle-2"></i> <strong>Архітектура та семантика:</strong> проєктування структури сайту за моделлю Pillar/Cluster (Silo). Виявлення та усунення канібалізації ключових слів.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="glass-card">
+      <h2 class="section-title"><i data-lucide="monitor-smartphone"></i> Портфоліо: SEO-Аудити та Власні Проєкти</h2>
+      <div class="portfolio-grid">
+        
+        <a href="https://yankoaleks.github.io/SEO-Course-Public/index.html" target="_blank" class="portfolio-card" style="border-color: rgba(139, 92, 246, 0.4);">
+          <img src="https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="SEO Course" class="portfolio-img">
+          <div class="portfolio-content">
+            <div class="portfolio-url">SEO-Курс / База знань <i data-lucide="external-link"></i></div>
+            <div class="portfolio-desc">Структурована публічна база знань, інструкцій та матеріалів з SEO-оптимізації. Власний освітній проєкт.</div>
+          </div>
+        </a>
+
+        <a href="https://wander-guide.site/" target="_blank" class="portfolio-card" style="border-color: rgba(14, 165, 233, 0.4);">
+          <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Wander Guide" class="portfolio-img">
+          <div class="portfolio-content">
+            <div class="portfolio-url">wander-guide.site <i data-lucide="external-link"></i></div>
+            <div class="portfolio-desc">Інформаційний портал про подорожі. Розробка структури, On-Page SEO оптимізація та публікація контенту.</div>
+          </div>
+        </a>
+        
+        <a href="https://seo-audit-wanderguide.vercel.app" target="_blank" class="portfolio-card" style="border-color: rgba(34,197,94,0.4);">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="SEO Audit" class="portfolio-img">
+          <div class="portfolio-content">
+            <div class="portfolio-url">SEO-аудит wander-guide.site <i data-lucide="external-link"></i></div>
+            <div class="portfolio-desc">Повний технічний + контентний SEO-аудит: CWV, E-E-A-T, індексація, аналіз конкурентів. Мій ключовий кейс.</div>
+          </div>
+        </a>
+
+        <a href="https://yankoaleks.github.io/ipcom-seo-audit/index.html" target="_blank" class="portfolio-card" style="border-color: rgba(234,179,8,0.4);">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="IPCOM Audit" class="portfolio-img">
+          <div class="portfolio-content">
+            <div class="portfolio-url">SEO-аудит ipcom.ua <i data-lucide="external-link"></i></div>
+            <div class="portfolio-desc">Детальний технічний та комерційний SEO-аудит: аналіз структури, On-Page факторів та точок росту трафіку.</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="glass-card" style="border-color: rgba(59, 130, 246, 0.4);">
+      <h2 class="section-title"><i data-lucide="layout-template"></i> Створення лендінгів та сайтів</h2>
+      <div class="portfolio-grid">
+
+        <a href="https://webstudia.online" target="_blank" class="portfolio-card" style="border-color: rgba(59, 130, 246, 0.4);">
+          <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Webstudia" class="portfolio-img">
+          <div class="portfolio-content">
+            <div class="portfolio-url">webstudia.online <i data-lucide="external-link"></i></div>
+            <div class="portfolio-desc">Сайт веб-студії з ідеальною структурою. SEO-оптимізація, мультомовність, швидкісна загрузка.</div>
+          </div>
+        </a>
+
+        <a href="https://mickaelcleanhouse.vercel.app" target="_blank" class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Cleanhouse" class="portfolio-img">
+          <div class="portfolio-content">
+            <div class="portfolio-url">mickaelcleanhouse.vercel.app <i data-lucide="external-link"></i></div>
+            <div class="portfolio-desc">Технічно вилизаний лендінг, підготовлений для просування в локальному SEO.</div>
+          </div>
+        </a>
+
+        <a href="https://barbershop-dun-three.vercel.app" target="_blank" class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Barbershop" class="portfolio-img">
+          <div class="portfolio-content">
+            <div class="portfolio-url">barbershop-dun-three <i data-lucide="external-link"></i></div>
+            <div class="portfolio-desc">Швидкісний проєкт, оптимізований під мобільні пристрої (Mobile-First Index).</div>
+          </div>
+        </a>
+        
+        <a href="https://modhouse.vercel.app" target="_blank" class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Modhouse" class="portfolio-img">
+          <div class="portfolio-content">
+            <div class="portfolio-url">modhouse.vercel.app <i data-lucide="external-link"></i></div>
+            <div class="portfolio-desc">Преміум-дизайн із семантичною HTML-версткою та SEO-френдлі архітектурою.</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="glass-card">
+      <h2 class="section-title"><i data-lucide="graduation-cap"></i> Освіта</h2>
+      <div class="edu-block">
+        <div class="edu-icon-wrap"><i data-lucide="book-open"></i></div>
+        <div>
+          <div class="edu-name">Одеський національний університет імені І. І. Мечникова</div>
+          <div class="edu-spec">Спеціальність: Комп'ютерні системи</div>
+          <div class="edu-year">2002 рік випуску</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>

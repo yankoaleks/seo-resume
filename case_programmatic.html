@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Case Study — Programmatic SEO</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Archivo', sans-serif; background: #09090b; color: #fafafa; padding: 40px; line-height: 1.6; max-width: 850px; margin: 0 auto; }
+  h1, h2, h3 { color: #3b82f6; margin-top: 30px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 30px; font-size: 15px; }
+  th, td { border: 1px solid rgba(255,255,255,0.1); padding: 12px; text-align: left; }
+  th { background: rgba(59,130,246,0.1); color: #60a5fa; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back-btn { display: inline-block; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid #3b82f6; border-radius: 8px; margin-bottom: 30px; transition: 0.2s; }
+  .back-btn:hover { background: rgba(59,130,246,0.4); }
+  .insight-box { background: rgba(234, 179, 8, 0.1); border-left: 4px solid #eab308; padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .highlight { color: #eab308; font-weight: 600; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<a href="rezume.html" class="back-btn">← Назад до Резюме</a>
+
+<h1>Побудова AI-конвеєра генерації контенту (Programmatic SEO)</h1>
+
+<p><strong>Ніша / Проєкт:</strong> Масштабне створення контенту під інформаційні портали</p>
+<p><strong>Інструментарій:</strong> Claude AI, ChatGPT, кастомні Python-скрипти, Editorial Audit Pipeline</p>
+<p><em>Цей кейс демонструє архітектуру "Article Factory" — системи автономних AI-агентів, що масово створюють високоякісні SEO-статті із суворим дотриманням стандартів E-E-A-T та багатоступеневим редакторським гейтом.</em></p>
+
+<hr style="border: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
+
+<h2>Етап 1: Архітектура Article Factory</h2>
+<p>Замість простої генерації тексту одним запитом, я розробив складний пайплайн із розділенням ролей між кількома AI-агентами:</p>
+<ul>
+  <li><strong>Research Agent:</strong> збирає фактаж, LSI-слова та вивчає конкурентів з ТОП-10.</li>
+  <li><strong>Structure Agent:</strong> формує правильну SEO-структуру з H2-H3, таблицями та списками.</li>
+  <li><strong>Content Writer:</strong> пише текст, дотримуючись визначеного Tone of Voice та уникаючи "води".</li>
+</ul>
+
+<h2>Етап 2: Суворий редакційний гейт (Editorial Audit v3)</h2>
+<p>Головна проблема згенерованого контенту — галюцинації та шаблонність. Щоб вирішити це, я впровадив жорсткий гейт-чек:</p>
+<div class="insight-box">
+  <span class="highlight">Редакційний скоринг:</span> Стаття не допускається до публікації, якщо не проходить понад 15 критеріїв оцінки (читабельність, відсутність AI-шаблонів, наявність експертної думки, E-E-A-T фактори).
+</div>
+
+<h2>Етап 3: Санітаризація та форматування</h2>
+<p>Перед фінальною передачею на публікацію, контент проходить обробку:</p>
+<ul>
+  <li>Автоматичне проставлення шорткодів для монетизації.</li>
+  <li>Додавання мікророзмітки (Schema.org).</li>
+  <li>Чистка HTML від зайвих тегів та оптимізація заголовків.</li>
+</ul>
+
+<h2>Результат</h2>
+<p>Створена система дозволяє генерувати десятки якісних, оптимізованих матеріалів на день, які пошукові системи (Google) не сприймають як AI-спам, оскільки структура, семантика та фактаж перевершують ручну роботу багатьох копірайтерів.</p>
+
+</body>
+</html>

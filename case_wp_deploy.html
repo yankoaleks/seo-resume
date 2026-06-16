@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Case Study — WordPress Deploy Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Archivo', sans-serif; background: #09090b; color: #fafafa; padding: 40px; line-height: 1.6; max-width: 850px; margin: 0 auto; }
+  h1, h2, h3 { color: #3b82f6; margin-top: 30px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 30px; font-size: 15px; }
+  th, td { border: 1px solid rgba(255,255,255,0.1); padding: 12px; text-align: left; }
+  th { background: rgba(59,130,246,0.1); color: #60a5fa; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back-btn { display: inline-block; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid #3b82f6; border-radius: 8px; margin-bottom: 30px; transition: 0.2s; }
+  .back-btn:hover { background: rgba(59,130,246,0.4); }
+  .insight-box { background: rgba(234, 179, 8, 0.1); border-left: 4px solid #eab308; padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .highlight { color: #eab308; font-weight: 600; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<a href="rezume.html" class="back-btn">← Назад до Резюме</a>
+
+<h1>Автоматизація деплою та SEO-налаштувань у WordPress</h1>
+
+<p><strong>Ніша / Проєкт:</strong> Веб-портали на WordPress</p>
+<p><strong>Інструментарій:</strong> WordPress REST API, MCP (Model Context Protocol), Python (requests), RankMath</p>
+<p><em>Кейс показує, як позбутися рутини при наповненні сайтів. Побудовано пайплайн для масової публікації статей, обходу захисту WAF та автоматичного налаштування всіх необхідних SEO-метаданих.</em></p>
+
+<hr style="border: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
+
+<h2>Етап 1: Обхід WAF та налаштування REST API</h2>
+<p>При масовій публікації серверні захисти (Cloudflare, ModSecurity) часто блокують API-запити. Я вирішив цю проблему:</p>
+<ul>
+  <li>Налаштування Application Passwords у WordPress.</li>
+  <li>Імплементація ротації кастомних User-Agent'ів та кастомних Headers у Python-скриптах для безперебійного проходження через WAF.</li>
+</ul>
+
+<h2>Етап 2: Масова автоматична публікація</h2>
+<p>Процес публікації повністю автоматизовано за допомогою спеціальних MCP інструментів та скриптів:</p>
+<div class="insight-box">
+  <span class="highlight">Gutenberg Ready:</span> Скрипти коректно форматують контент у блоки Gutenberg, зберігаючи стилі, таблиці, та шорткоди без пошкодження HTML-структури сайту.
+</div>
+<ul>
+  <li>Автоматичне завантаження медіафайлів (зображень) та генерація для них оптимізованих `alt` атрибутів.</li>
+  <li>Прив'язка статей до відповідних категорій та тегів (Taxonomy mapping).</li>
+</ul>
+
+<h2>Етап 3: Автоматизація RankMath та Schema.org</h2>
+<p>Публікація тексту — це лише половина справи. Пайплайн також автоматизує SEO-параметри:</p>
+<ul>
+  <li>Динамічна генерація та інсерт Focus Keywords, SEO Titles та Meta Descriptions через мета-поля RankMath.</li>
+  <li>Автоматична розмітка JSON-LD (FAQ, Article, Breadcrumbs), що одразу генерує rich snippets у видачі.</li>
+</ul>
+
+<h2>Результат</h2>
+<p>Процес публікації та первинної On-Page оптимізації статті скоротився з 15-20 хвилин ручної роботи до 5 секунд автоматичного виконання скрипта.</p>
+
+</body>
+</html>
